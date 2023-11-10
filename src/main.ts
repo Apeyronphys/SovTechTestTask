@@ -6,7 +6,7 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const logger = new Logger('NestApplication');
-  const port = process.env.APP_PORT ? Number(process.env.APP_PORT) : 3000;
+  const port = process.env.SERVER_PORT ? Number(process.env.SERVER_PORT) : 3000;
 
   SwaggerConfig(app);
 
