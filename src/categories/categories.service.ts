@@ -2,7 +2,7 @@ import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { ICreateCategory } from './interfaces/create-category.interface';
 import { ICategory } from './interfaces/category.interface';
 import { IUpdateCategory } from './interfaces/update-category.interface';
-import _ from 'lodash';
+import * as _ from 'lodash';
 import { CategoriesRepository } from './categories.repository';
 import { IGetCategories } from './interfaces/get-categories.interface';
 
