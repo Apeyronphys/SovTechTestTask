@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./volumes/pg_project:/var/lib/postgresql/data
+  
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sovcom-tech-app
+    environment:
+      - PORT=${SERVER_PORT}
+    ports:
+      - '3000:3000'
+    depends_on:
+      - postgres
+    volumes:
+      - ./src:/app/src
+
+  # Adminer for database
+  cycle-adminer:
+    image: adminer:latest
+    container_name: cycle-adminer
+    links:
+      - postgres
+    restart: always
+    ports:
+      - "8082:8080"  # port for adminer 8082
