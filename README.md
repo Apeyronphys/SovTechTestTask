@@ -46,4 +46,4 @@
 
 Сервер, имя, пароль, база данных - postgres
 
-Движок - PostgresQL
+Движок - PostgreSQL
