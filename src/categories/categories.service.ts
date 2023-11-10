@@ -1,4 +1,4 @@
-import { HttpException, Injectable, Logger } from '@nestjs/common';
+import { HttpException, Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { ICreateCategory } from './interfaces/create-category.interface';
 import { ICategory } from './interfaces/category.interface';
 import { IUpdateCategory } from './interfaces/update-category.interface';
@@ -32,7 +32,7 @@ export class CategoriesService {
             const category = await this.categoriesRepository.findCategory(categoryInput.id, categoryInput.slug)
 
             if(!category) {
-                throw new HttpException('Category is not found by given varivles', 404)
+                throw new NotFoundException('Category is not found by given varibles')
             }
 
             const updateFields = _.omit(categoryInput, 'id');
@@ -55,7 +55,7 @@ export class CategoriesService {
             const category = await this.categoriesRepository.findCategory(id, slug);
 
             if (!category) {
-                throw new HttpException('Category is not found by given varivles', 404)
+                throw new NotFoundException('Category is not found by given varibles')
             }
 
             return category;
