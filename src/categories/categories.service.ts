@@ -1,4 +1,4 @@
-import { HttpException, Injectable, Logger, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { ICreateCategory } from './interfaces/create-category.interface';
 import { ICategory } from './interfaces/category.interface';
 import { IUpdateCategory } from './interfaces/update-category.interface';
