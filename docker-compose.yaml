@@ -30,7 +30,7 @@ services:
   # Adminer for database
   cycle-adminer:
     image: adminer:latest
-    container_name: cycle-adminer
+    container_name: adminer
     links:
       - postgres
     restart: always
