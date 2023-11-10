@@ -3,23 +3,23 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity('category')
 export class CategoryEntity {
     @PrimaryGeneratedColumn('uuid')
-    id!: string;
+    id!: string
 
     @Column({ unique: true })
-    slug!: string;
+    slug!: string
 
     @Column()
-    name!: string;
+    name!: string
 
     @Column({ nullable: true })
-    description?: string;
+    description?: string
 
     @Column({ 
         default: new Date(),
         type: 'timestamp'
     })
-    createdDate!: Date; 
+    createdDate!: Date
 
     @Column()
-    active!: boolean;
+    active!: boolean
 }

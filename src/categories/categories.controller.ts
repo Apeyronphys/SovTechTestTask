@@ -30,7 +30,7 @@ export class CategoriesController {
     async createCategory(
         @Body() input: CreateCategoryDto,
     ): Promise<CategoryDto> {
-        const cotegory = await this.categoriesService.createCategory(input);
+        const cotegory = await this.categoriesService.createCategory(input)
 
         return new CategoryDto(cotegory)
     }
@@ -40,7 +40,7 @@ export class CategoriesController {
     async updateCategory(
         @Body() input: UpdateCategoryDto
     ): Promise<CategoryDto> {
-        return this.categoriesService.updateCategory(input);
+        return this.categoriesService.updateCategory(input)
     }
 
     @Get()
@@ -48,7 +48,7 @@ export class CategoriesController {
     async getCategory(
         @Query() query: GetCategoryDto
     ): Promise<CategoryDto> {
-        return this.categoriesService.getCategory(query.id, query.slug);
+        return this.categoriesService.getCategory(query.id, query.slug)
     }
 
     @Post('all')
@@ -57,7 +57,7 @@ export class CategoriesController {
     async getAllCategories(
         @Body() body: GetCategoriesDto
     ): Promise<CategoryDto[]> {
-        return this.categoriesService.getAllCategories(body);
+        return this.categoriesService.getAllCategories(body)
     }
 
     @Delete(':id')
@@ -65,7 +65,7 @@ export class CategoriesController {
     async deleteCategory(
         @Param() param: GetCategoryByIdDto
     ): Promise<boolean> {
-        return this.categoriesService.removeCategory(param.id);
+        return this.categoriesService.removeCategory(param.id)
     }
 
 }

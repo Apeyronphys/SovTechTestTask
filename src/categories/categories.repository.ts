@@ -21,23 +21,23 @@ export class CategoriesRepository {
             const category = this.categoriesRepository.create({
                 ...categoryInput,
                 active: true,
-            });
+            })
 
-            return category;
+            return category
         } catch(err) {
             this.logger.error(err)
 
-            throw new Error(err);
+            throw new Error(err)
         }
     }
 
     async saveCategory(category: CategoryEntity): Promise<CategoryEntity> {
         try {
-            return this.categoriesRepository.save(category);
+            return this.categoriesRepository.save(category)
         } catch(err) {
             this.logger.error(err)
 
-            throw new Error(err);
+            throw new Error(err)
         }
     }
 
@@ -48,11 +48,11 @@ export class CategoriesRepository {
             .orWhere('category.slug = :slug', { slug })
             .getOne()
 
-            return category;
+            return category
         } catch(err) {
             this.logger.error(err)
 
-            throw new Error(err);
+            throw new Error(err)
         }
     }
 
@@ -66,11 +66,11 @@ export class CategoriesRepository {
                 updateFields
             )
 
-            return true;
+            return true
         } catch(err) {
             this.logger.error(err)
 
-            throw new Error(err);
+            throw new Error(err)
         }
     }
 
@@ -104,21 +104,21 @@ export class CategoriesRepository {
                 .limit(request.pageSize)
                 .offset(request.page)
                 .orderBy(orderValue, order)
-                .getMany();
+                .getMany()
         } catch(err) {
             this.logger.error(err)
 
-            throw new Error(err);
+            throw new Error(err)
         }
     }
 
     async deleteCategory(category: CategoryEntity): Promise<DeleteResult> {
         try {
-            return this.categoriesRepository.delete(category);
+            return this.categoriesRepository.delete(category)
         } catch(err) {
             this.logger.error(err)
 
-            throw new Error(err);
+            throw new Error(err)
         }
     }
 }

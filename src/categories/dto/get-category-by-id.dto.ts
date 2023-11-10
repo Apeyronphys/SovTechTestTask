@@ -5,5 +5,5 @@ export class GetCategoryByIdDto {
     @ApiProperty()
     @IsNotEmpty()
     @IsUUID()
-    id!: string;
+    id!: string
 }

@@ -6,7 +6,7 @@ export class GetCategoryDto {
     @ValidateIf(o => !o.slug)
     @IsNotEmpty()
     @IsUUID()
-    id?: string;
+    id?: string
 
     @ApiProperty({ nullable: true })
     @ValidateIf(o => !o.id)

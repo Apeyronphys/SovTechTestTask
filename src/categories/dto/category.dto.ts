@@ -6,19 +6,19 @@ export class CategoryDto {
     id!: string;
 
     @ApiProperty()
-    slug!: string;
+    slug!: string
 
     @ApiProperty()
-    name!: string;
+    name!: string
 
     @ApiProperty()
-    description?: string;
+    description?: string
 
     @ApiProperty()
-    createdDate!: Date; 
+    createdDate!: Date
 
     @ApiProperty()
-    active!: boolean;
+    active!: boolean
 
     constructor(category: ICategory) {
         this.id = category.id

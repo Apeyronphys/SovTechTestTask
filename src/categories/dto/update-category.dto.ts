@@ -6,7 +6,7 @@ export class UpdateCategoryDto {
     @ValidateIf(o => !o.slug)
     @IsNotEmpty()
     @IsUUID()
-    id?: string;
+    id?: string
 
     @ApiProperty({ nullable: true })
     @ValidateIf(o => !o.id)
@@ -17,7 +17,7 @@ export class UpdateCategoryDto {
     @ApiProperty({ nullable: true })
     @Matches('^[а-яёА-ЯЁa-zA-Z\\s]+$')
     @IsOptional()
-    name?: string;
+    name?: string
 
     @ApiProperty({ nullable: true })
     @Matches('^[а-яёА-ЯЁa-zA-Z\\s]+$')
