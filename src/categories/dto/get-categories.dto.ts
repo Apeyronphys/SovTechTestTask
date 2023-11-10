@@ -47,6 +47,7 @@ export class GetCategoriesDto {
         type: Number
     })
     @IsNumber()
+    @Transform(({ value }) => value > 0 ? value - 1 : value)
     @IsOptional()
     page? = 0
 
