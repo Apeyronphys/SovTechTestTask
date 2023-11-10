@@ -35,3 +35,5 @@
   POST categories/all - Получение всех категорий 
 
   DELETE categories/:id -Удаление категории
+
+### Сыылка на сваггер - /docs
