@@ -1,14 +1,14 @@
 import {
-    Body,
-    Controller,
-    Delete,
-    Get,
-    Param,
-    Post,
-    Put,
-    Query,
-    UsePipes,
-    ValidationPipe
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Query,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
@@ -21,51 +21,40 @@ import { GetCategoriesDto } from './dto/get-categories.dto';
 
 @Controller('categories')
 export class CategoriesController {
-    constructor(
-        private readonly categoriesService: CategoriesService,
-    ) {}
+  constructor(private readonly categoriesService: CategoriesService) {}
 
-    @Post()
-    @ApiResponse({ type: CategoryDto })
-    async createCategory(
-        @Body() input: CreateCategoryDto,
-    ): Promise<CategoryDto> {
-        const cotegory = await this.categoriesService.createCategory(input)
+  @Post()
+  @ApiResponse({ type: CategoryDto })
+  async createCategory(@Body() input: CreateCategoryDto): Promise<CategoryDto> {
+    const cotegory = await this.categoriesService.createCategory(input);
 
-        return new CategoryDto(cotegory)
-    }
+    return new CategoryDto(cotegory);
+  }
 
-    @Put()
-    @ApiResponse({ type: CategoryDto })
-    async updateCategory(
-        @Body() input: UpdateCategoryDto
-    ): Promise<CategoryDto> {
-        return this.categoriesService.updateCategory(input)
-    }
+  @Put()
+  @ApiResponse({ type: CategoryDto })
+  async updateCategory(@Body() input: UpdateCategoryDto): Promise<CategoryDto> {
+    return this.categoriesService.updateCategory(input);
+  }
 
-    @Get()
-    @ApiResponse({ type: CategoryDto })
-    async getCategory(
-        @Query() query: GetCategoryDto
-    ): Promise<CategoryDto> {
-        return this.categoriesService.getCategory(query.id, query.slug)
-    }
+  @Get()
+  @ApiResponse({ type: CategoryDto })
+  async getCategory(@Query() query: GetCategoryDto): Promise<CategoryDto> {
+    return this.categoriesService.getCategory(query.id, query.slug);
+  }
 
-    @Post('all')
-    @ApiResponse({ type: [CategoryDto] })
-    @UsePipes(new ValidationPipe({ transform: true }))
-    async getAllCategories(
-        @Body() body: GetCategoriesDto
-    ): Promise<CategoryDto[]> {
-        return this.categoriesService.getAllCategories(body)
-    }
+  @Post('all')
+  @ApiResponse({ type: [CategoryDto] })
+  @UsePipes(new ValidationPipe({ transform: true }))
+  async getAllCategories(
+    @Body() body: GetCategoriesDto,
+  ): Promise<CategoryDto[]> {
+    return this.categoriesService.getAllCategories(body);
+  }
 
-    @Delete(':id')
-    @ApiResponse({ type: Boolean })
-    async deleteCategory(
-        @Param() param: GetCategoryByIdDto
-    ): Promise<boolean> {
-        return this.categoriesService.removeCategory(param.id)
-    }
-
+  @Delete(':id')
+  @ApiResponse({ type: Boolean })
+  async deleteCategory(@Param() param: GetCategoryByIdDto): Promise<boolean> {
+    return this.categoriesService.removeCategory(param.id);
+  }
 }
